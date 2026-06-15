@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Dataset
+
 data = {
     "student_id": [101, 102, 103, 104, 105, 106],
     "attendance_percent": [92, 67, 81, 45, 74, 88],
@@ -12,7 +12,7 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Feature Engineering
+
 df['total_score'] = df['assignment_score'] + df['quiz_score']
 
 df['eligible'] = (
@@ -21,9 +21,7 @@ df['eligible'] = (
     (df['lab_completed'])
 )
 
-# ----------------------------
-# 1. Attendance Bar Chart
-# ----------------------------
+
 plt.figure(figsize=(6,4))
 plt.bar(df['student_id'], df['attendance_percent'])
 plt.title("Attendance Percentage")
@@ -31,9 +29,7 @@ plt.xlabel("Student ID")
 plt.ylabel("Attendance (%)")
 plt.show()
 
-# ----------------------------
-# 2. Total Score Bar Chart
-# ----------------------------
+
 plt.figure(figsize=(6,4))
 plt.bar(df['student_id'], df['total_score'])
 plt.title("Total Score of Students")
@@ -41,9 +37,7 @@ plt.xlabel("Student ID")
 plt.ylabel("Total Score")
 plt.show()
 
-# ----------------------------
-# 3. Assignment vs Quiz Score
-# ----------------------------
+
 plt.figure(figsize=(6,4))
 plt.scatter(df['assignment_score'], df['quiz_score'])
 plt.title("Assignment vs Quiz Score")
@@ -57,9 +51,7 @@ for i in range(len(df)):
 
 plt.show()
 
-# ----------------------------
-# 4. Eligible Students Count
-# ----------------------------
+
 eligible_count = df['eligible'].value_counts()
 
 plt.figure(figsize=(5,4))
